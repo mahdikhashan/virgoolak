@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <title>پیکاسو | اسکرین شات حرفه ای از ویرگول</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async src="https://cdn.splitbee.io/sb.js"></script>
+    <script type="text/javascript">
+        window.heap = window.heap || [], heap.load = function (e, t) { window.heap.appid = e, window.heap.config = t = t || {}; var r = document.createElement("script"); r.type = "text/javascript", r.async = !0, r.src = "https://cdn.heapanalytics.com/js/heap-" + e + ".js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(r, a); for (var n = function (e) { return function () { heap.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "resetIdentity", "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"], o = 0; o < p.length; o++)heap[p[o]] = n(p[o]) };
+        heap.load("1430581163"); 
+    </script>
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+        integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
+    <link href='https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css' rel='stylesheet' type='text/css'>
+    <style>
+        @font-face {
+            font-family: Vazir;
+            src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.eot');
+            src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.woff2') format('woff2'),
+                url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.woff') format('woff'),
+                url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.ttf') format('truetype');
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: Vazir;
+            src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.eot');
+            src: url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.woff2') format('woff2'),
+                url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.woff') format('woff'),
+                url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
+        body {
+            font-family: Vazir;
+            font-weight: bold;
+        }
+
+        .banner {
+            margin: auto;
+            display: block;
+            border-radius: 10px;
+            border: 1px solid black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .center {
+            margin: auto;
+            padding: 40px;
+        }
+
+        .input {
+            padding: 20px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .col-sm-6 {
+            top: 50px;
+        }
+
+        .spacer {}
+
+        body,
+        html {
+            height: 100%;
+            display: grid;
+        }
+
+        .navbar-nav .nav-item:not(:last-child) {
+            border-right: 1px solid silver;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav .nav-item:not(:last-child) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+
+<body dir="rtl">
+    <!-- Just an image -->
+    <div class="container" style="height: 100%;display: grid;">
+        <nav class="navbar navbar-light bg-white">
+            <a class="navbar-brand" href="#" style="font-size: 2rem;">
+                <img src="/static/virgoolak.png" width="50" height="50" alt="" style="border-radius: 5px;">
+                <span>
+                    ویرگولک
+                </span>
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="badge badge-Success">نسخه ۰.۱.۱</a>
+                    <a href="mailto:mahdikhashan1@gmail.com" class="badge badge-Warning">پشتیبانی</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="center">
+                <img class="banner img-fluid" src="/static/banner.png" width="350" height="350" />
+            </div>
+            <div class="center">
+                <h1 style="font-weight: bold;">اسکرین شات حرفه ای از ویرگول</h1>
+                <h6 style="padding-top: 25px;">اسکرین شات های خیلی زیبا و بدون مورد اضافی از پست ویرگول بسازید.</h6>
+                <h6>مناسب برای اشتراک گذاری در اینستاگرام، وبسایت یا خبرگزاری ها.</h6>
+                <div class="input-group" style="padding-top: 45px;">
+                    <input type="text" class="form-control" placeholder="لینک مقاله در ویرگول"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" id="url">
+                    <div class="input-group-append">
+                        <button data-splitbee-event="Download" class="btn btn-primary" type="button" id="button-addon2"
+                            onclick="get()">دانلود</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function get() {
+            window.open(window.location.href + 'api/v1/tag/virgool?url=' + document.getElementById("url").value)
+        }
+    </script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"
+    integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k" crossorigin="anonymous">
+    </script>
+
+</html>
