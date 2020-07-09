@@ -8,7 +8,7 @@
         window.heap = window.heap || [], heap.load = function (e, t) { window.heap.appid = e, window.heap.config = t = t || {}; var r = document.createElement("script"); r.type = "text/javascript", r.async = !0, r.src = "https://cdn.heapanalytics.com/js/heap-" + e + ".js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(r, a); for (var n = function (e) { return function () { heap.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "resetIdentity", "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"], o = 0; o < p.length; o++)heap[p[o]] = n(p[o]) };
         heap.load("1430581163"); 
     </script>
-    <link rel="icon" type="image/png" href="/static/virgoolak.png"/>
+    <link rel="icon" type="image/png" href="/static/virgoolak.png" />
     <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
         integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
     <link href='https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css' rel='stylesheet' type='text/css'>
@@ -46,6 +46,19 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
+        .banner-line {
+            margin: auto;
+            display: block;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .banner-btn {
+            margin: auto;
+            display: block;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
         .center {
             margin: auto;
             padding: 40px;
@@ -61,43 +74,72 @@
             top: 50px;
         }
 
-        .spacer {}
-
-        body,
-        html {
-            height: 100%;
-            display: grid;
+        .divider {
+            border-top: 3px black linen !important;
         }
 
-        .navbar-nav .nav-item:not(:last-child) {
-            border-right: 1px solid silver;
+        .btn-light {
+            background-color: white;
+            border-color: white;
         }
 
-        @media (max-width: 768px) {
-            .navbar-nav .nav-item:not(:last-child) {
-                border-right: none;
-            }
+        .email-text{
+            border: none;
+            border-radius: 5px;
         }
+
+        .email-text:focus {
+            border: none;
+        }
+
     </style>
 </head>
 
 <body dir="rtl">
     <!-- Just an image -->
     <div class="container" style="display: grid;">
-        <nav class="navbar navbar-light bg-white">
-            <a class="navbar-brand" href="#" style="font-size: 2rem;">
-                <img src="/static/virgoolak.png" width="50" height="50" alt="" style="border-radius: 5px;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="padding-top: 2rem; padding-bottom: 5rem;">
+            <a class="navbar-brand" href="#" style="font-size: 1.5rem;">
+                <img src="/static/virgoolak.png" width="35" height="35" alt="" style="border-radius: 5px;">
                 <span>
                     ویرگولک
                 </span>
             </a>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#" class="badge badge-Success">نسخه ۰.۱.۲</a>
-                    <a href="mailto:mahdikhashan1@gmail.com" class="badge badge-Warning">پشتیبانی</a>
-                </li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="padding-left:0.5rem;">
+                        <button class="btn btn-light">
+                            استایل ها
+                        </button>
+                    </li>
+                    <li class="nav-item" style="padding-left:0.5rem;">
+                        <button class="btn btn-light">
+                            افزونه
+                        </button>
+                    </li>
+                    <li class="nav-item" style="padding-left:0.5rem;">
+                        <button class="btn btn-light">
+                            API
+                        </button>
+                    </li>
+                    <li class="nav-item" style="padding-left:0.5rem;">
+                        <button class="btn btn-light">
+                            بلاگ
+                        </button>
+                    </li>
+                    <li class="nav-item" style="padding-left:0.5rem;">
+                        <button class="btn btn-outline-primary">
+                            <b>ورود</b>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </nav>
+
         <div class="row">
             <div class="center">
                 <img class="banner img-fluid" src="/static/banner.png" width="350" height="350" />
@@ -117,11 +159,178 @@
             </div>
         </div>
     </div>
-    <script>
-        function get() {
-            window.open(window.location.href + 'api/v1/tag/virgool?url=' + document.getElementById("url").value)
-        }
-    </script>
+    <img class="banner-line img-fluid" src="/static/line.svg" width="500" height="350"/>
+    <div class="text-center">
+        <h3><b>با یک کلیک اسکرین شات بگیرید</b></h3>
+        <h5>افزونه مرورگر ویرگولک رو نصب کنید و با یک کلیک از نوشته های ویرگول اسکرین شات ایجاد کنید.</h5>
+        <img src="/static/virgoolak-7.png" style="max-width:50%; margin: 3rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+    </div>
+    <button class="banner-btn btn btn-primary" style="margin-bottom: 5%;" onclick="location.href='https://addons.mozilla.org/en-US/firefox/addon/virgoolak/'">نصب افزونه</button>
+    <div class="jumbotron" style="margin-bottom: 0;">
+        <h3 class="text-center">استایل خودتون رو ایجاد کنید!</h3>
+        <h6 class="text-center">رنگ زرد قناری. آبی نفتی. قرمز جگری.</h6>
+        <br>
+        <br>
+        <div class="row d-flex justify-content-center">
+            <img src="/static/virgoolak-1.png" style="max-width:17.5%; margin: 0.3rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+            <img src="/static/virgoolak-6.png" style="max-width:17.5%; margin: 0.3rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+            <img src="/static/virgoolak-3.png" style="max-width:17.5%; margin: 0.3rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+            <img src="/static/virgoolak-4.png" style="max-width:17.5%; margin: 0.3rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+            <img src="/static/virgoolak-5.png" style="max-width:17.5%; margin: 0.3rem;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron"
+            style="margin-top: 2rem; border:5px solid #e9ecef !important; background-color: white; border-radius: 10px; margin-bottom: 7.5rem;">
+            <div class="row vazir">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div>
+                        <h3>ویژگی های جدید:</h3>
+                    </div>
+                    <br>
+                    <div>
+                        <ul>
+                            <li>فونت و رنگ سفارشی</li>
+                            <li>لیوت و طراحی های جدید</li>
+                            <li>تصاویر زمینه باحال</li>
+                            <li>پشتیبانی از گوگل درایو و دراپ باکس</li>
+                            <li>پشتیبانی از Buffer و Hootsuite</li>
+                            <li>اپ اندروید و ای او اس</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8" style="margin: auto;display: block;">
+                    <div class="row">
+                        <label for="basic-url">ایمیل خود را وارد کنید تا هر وقت این ویژگی ها از راه رسیدن بهتون خبر بدیم:</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="email-text" placeholder="آدرس ایمیل شما" aria-label="Username" aria-describedby="basic-addon1" style="width: 50%; background-color: #eef0f1; box-sizing: border-box;padding-right: 10px;">
+                            <button class="btn btn-dark" style="margin-right: 15px;">خبرم کن</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="page-footer font-small blue pt-4" style="background-color: black; padding-bottom: 3%;">
+
+            <div class="container">
+
+                <!-- Footer Links -->
+                <div class="container-fluid text-center text-md-left">
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 mt-md-0 mt-4">
+
+                            <!-- Content -->
+                            <h6 class="vazir" style="color: #ddd;">ساخته شده با <img src="/static/heart.svg" width="15"
+                                    height="15" alt="" style="border-radius: 5px;"> در ایران</h6>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <hr class="clearfix w-100 d-md-none pb-3">
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mb-md-0 mb-2">
+
+                            <!-- Links -->
+                            <h6 class="text-uppercase" style="color: #616D78;">ویژگی ها</h6>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" style="color: #ddd;">استایل ها</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">قیمت</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mb-md-0 mb-2">
+
+                            <!-- Links -->
+                            <h6 class="text-uppercase" style="color: #616D78;">توسعه دهنده</h6>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" style="color: #ddd;">افزونه مرورگر</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">API</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mb-md-0 mb-2">
+
+                            <!-- Links -->
+                            <h6 class="text-uppercase" style="color: #616D78;">بیشتر</h6>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" style="color: #ddd;">بلاگ</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">شرایط استفاده</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">حقوق کاربران</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">وضعیت سرویس</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">تماس</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mb-md-0 mb-2">
+
+                            <!-- Links -->
+                            <h6 class="text-uppercase" style="color: #616D78;">شبکه های اجتماعی</h6>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!" style="color: #ddd;">توییتر</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">اینستاگرام</a>
+                                </li>
+                                <li>
+                                    <a href="#!" style="color: #ddd;">لینکدین</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                </div>
+                <!-- Footer Links -->
+            </div>
+        </footer>
+        <!-- Footer -->
+        <script>
+            function get() {
+                window.open(window.location.href + 'api/v1/tag/virgool?url=' + document.getElementById("url").value)
+            }
+        </script>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
