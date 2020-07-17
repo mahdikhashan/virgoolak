@@ -9,13 +9,38 @@ from virgoolak import Type1
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
+from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
+
+from flask import abort
+from jinja2 import TemplateNotFound
+
+from flask import redirect
+from flask import url_for
+
+from werkzeug.security import (generate_password_hash,
+                                check_password_hash)
+
+#from flask_login import LoginManger
+from flask_login import login_user, login_required, logout_user
+
+
 sentry_sdk.init(
     dsn="https://e17333e06f6747e9b3d0eb6aed5b6aee@o330581.ingest.sentry.io/5321573",
     integrations=[FlaskIntegration()]
 )
 
 
+db = SQLAlchemy()
+
 app = Flask(__name__)
+
+
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+    name = db.Column(db.String(1000))
 
 
 @app.route('/debug-sentry')
@@ -24,18 +49,65 @@ def trigger_error():
 
 
 @app.route('/')
-def root():
+@app.endpoint('index')
+def index():
     return render_template('index.html')
 
 
-@app.route('/auth/signin')
+@app.route('/auth/signin', methods=['POST', 'GET'])
+@app.endpoint('auth.signin')
 def signin():
-    return render_template('signin.html')
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        remember = True if request.form.get('remember') else FlaskIntegration
+
+        user = User.query.filter_by(email=email).first()
+
+        if not user or not check_password_hash(user.password, password):
+            return redirect(url_for('auth.signup'))
+
+        login_user(user, remember=remember)
+        return redirect (url_for('index'))
+    else:
+        try:
+            return render_template('signin.html')
+        except TemplateNotFound:
+            abort(404)
 
 
 @app.route('/auth/signup')
+@app.endpoint('auth.signup')
 def signup():
-    return render_template('signup.html')
+    if request.method == 'POST':
+        email = request.form.get('email')
+        name = request.form.get('name')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            return redirect(url_for(signup))
+
+        naw_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect(url_for(signin))
+    else:
+        try:
+            return render_template('signup.html')
+        except TemplateNotFound:
+            abort(404)
+
+
+@app.route('/auth/logout')
+@app.endpoint('auth.logout')
+@login_required
+def logout():
+    login_user()
+    return redirect(url_for('index'))
 
 
 @app.route('/api/v1/tag/virgool', methods=['GET'])
