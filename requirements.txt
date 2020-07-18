@@ -13,5 +13,5 @@ Werkzeug==0.15.5
 python-bidi==0.4.2
 sentry-sdk[flask]==0.16.0
 flask-login
-flask-sqlalchemy
+Flask-SQLAlchemy
 sentry-sdk
