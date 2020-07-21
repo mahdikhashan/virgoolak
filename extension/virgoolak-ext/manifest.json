@@ -1,0 +1,26 @@
+{
+
+  "description": "Virgool screenshoot builder",
+  "manifest_version": 2,
+  "name": "Virgoolak",
+  "version": "1.1",
+  "homepage_url": "https://virgoolak.ir",
+  "icons": {
+    "48": "icons/virgoolak-16.png"
+  },
+  
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/virgoolak-16.png",
+      "32": "icons/virgoolak-16.png"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.virgool.io/*/*"],
+      "js": ["virgoolak.js"]
+    }
+  ]
+
+}
