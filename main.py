@@ -1,16 +1,14 @@
+from flask_login import login_user, login_required, logout_user
+from flask_login import UserMixin
+from flask_login import LoginManager
+
+login_manager = LoginManager()
+
 import io
+
 from flask import Flask
 from flask import request
 from flask import render_template, send_file
-
-from virgool import Virgool
-from virgoolak import Type1
-
-import sentry_sdk
-from sentry_sdk.integrations.flask import FlaskIntegration
-
-from flask_login import UserMixin
-from flask_sqlalchemy import SQLAlchemy
 
 from flask import abort
 from jinja2 import TemplateNotFound
@@ -21,9 +19,16 @@ from flask import url_for
 from werkzeug.security import (generate_password_hash,
                                 check_password_hash)
 
-#from flask_login import LoginManger
-from flask_login import login_user, login_required, logout_user
+from virgool import Virgool
+from virgoolak import Type1
 
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
+from flask_sqlalchemy import SQLAlchemy
+
+
+app = Flask(__name__)
 
 sentry_sdk.init(
     dsn="https://e17333e06f6747e9b3d0eb6aed5b6aee@o330581.ingest.sentry.io/5321573",
@@ -33,7 +38,7 @@ sentry_sdk.init(
 
 db = SQLAlchemy()
 
-app = Flask(__name__)
+login_manager.init_app(app)
 
 
 class User(UserMixin, db.Model):
@@ -50,12 +55,22 @@ def trigger_error():
 
 @app.route('/')
 @app.endpoint('index')
+# @login_manager.request_loader
 def index():
     return render_template('index.html')
 
 
+@app.route('/dashboard')
+@app.endpoint('dashboard')
+# @login_manager.request_loader
+# @login_required
+def dashboard():
+    return "dashboard"
+
+
 @app.route('/auth/signin', methods=['POST', 'GET'])
 @app.endpoint('auth.signin')
+# @login_manager.request_loader
 def signin():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -68,7 +83,7 @@ def signin():
             return redirect(url_for('auth.signup'))
 
         login_user(user, remember=remember)
-        return redirect (url_for('index'))
+        return redirect (url_for('dashboard'))
     else:
         try:
             return render_template('signin.html')
@@ -78,6 +93,7 @@ def signin():
 
 @app.route('/auth/signup')
 @app.endpoint('auth.signup')
+@login_manager.request_loader
 def signup():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -94,7 +110,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect(url_for(signin))
+        return redirect(url_for('signin'))
     else:
         try:
             return render_template('signup.html')
@@ -104,6 +120,7 @@ def signup():
 
 @app.route('/auth/logout')
 @app.endpoint('auth.logout')
+@login_manager.request_loader
 @login_required
 def logout():
     login_user()
