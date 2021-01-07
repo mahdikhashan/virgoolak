@@ -5,7 +5,7 @@ cfscrape==2.1.1
 Flask==1.1.1
 html5lib==0.999999999
 Jinja2==2.10
-lxml==4.2.1
+lxml==4.6.2
 Pillow==5.1.0
 requests==2.21.0
 urllib3==1.24.1
